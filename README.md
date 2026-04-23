@@ -1,64 +1,89 @@
-# SENIORITY.AI 🚀
-### *The Elite Developer Simulator*
+<p align="center">
+  <img src="https://img.shields.io/badge/Seniority.AI-The%20Elite%20Simulator-blueviolet?style=for-the-badge&logo=ai" alt="Seniority.AI Logo">
+</p>
 
-**SENIORITY.AI** es el primer simulador de carrera profesional de alto rendimiento diseñado específicamente para programadores en Latinoamérica. No es un curso, no es un tutorial; es un **trabajo real simulado** donde la presión, el código y el equipo son reales, pero gestionados por Inteligencia Artificial.
+<h1 align="center">SENIORITY.AI</h1>
 
----
+<p align="center">
+  <b>No es un curso. No es un tutorial. Es tu próximo trabajo (en modo Hardcore).</b><br>
+  <i>Entrena en proyectos reales, con presión real y un equipo de IA que no perdona errores.</i>
+</p>
 
-## 🎭 La Experiencia
-Te unes a una empresa líder en una industria de tu elección (Banca, ERP, EdTech, etc.). Se te asigna un rol, un seniority y un equipo de IA que te llevará al límite:
-
-- **The Picky Boss (Tech Lead):** Un jefe exigente que revisa tu código línea por línea y no acepta mediocridad. Habla en el "Spanglish" técnico típico de las startups de LATAM.
-- **The QA Tester:** Un bot que intentará romper tu código con casos borde y rechazará tus tickets si no son robustos.
-- **The Dev Junior:** Un mentee que te hará preguntas técnicas para medir tu capacidad de liderazgo y claridad.
-
----
-
-## 🛠 Industrias & Stacks
-Elige tu camino profesional en proyectos Open Source masivos y reales:
-- **Banking (Fintech):** Apache Fineract (Java/Spring)
-- **ERP (Business Logic):** ERPNext (Python/JS)
-- **E-commerce:** Saleor (Python/React)
-- **Super-Apps/Delivery:** Open-Delivery (Go/Flutter)
-- **Ciberseguridad:** Zitadel (Go/Angular)
-- *Y 8 industrias más...*
+<p align="center">
+  <img src="https://img.shields.io/github/stars/exe72418/SENIORITY.AI?style=flat-square&color=ffd700" alt="Stars">
+  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome">
+  <img src="https://img.shields.io/badge/Focus-LATAM%20Devs-orange?style=flat-square" alt="Focus LATAM">
+  <img src="https://img.shields.io/badge/LLM-Agnostic-blue?style=flat-square" alt="LLM Agnostic">
+</p>
 
 ---
 
-## ⚙️ Cómo Funciona (Bring Your Own AI)
-**SENIORITY.AI** es una plataforma de costo cero para el usuario y el creador, diseñada para la privacidad y la escalabilidad:
+## 🚀 ¿Qué es SENIORITY.AI?
 
-1. **Tu Propia IA:** Conecta tu API Key de Gemini, Claude o ChatGPT. La IA que tú pagas (o usas gratis) es la que actúa como tu jefe.
-2. **Entorno Real:** El simulador inyecta tareas y bugs reales en un repositorio de GitHub de tu propiedad.
-3. **Validación Docker:** Cada Pull Request que abras dispara un contenedor Docker real que corre los tests del proyecto. Si los tests no pasan, tu jefe no revisará el código.
-4. **Sesiones de 3 Horas:** Entrena en bloques de alta concentración. Cumple tus estimaciones o prepárate para dar explicaciones en el *Daily Stand-up*.
+En Latinoamérica, el salto de Junior a Senior es un abismo. **SENIORITY.AI** cierra esa brecha sumergiéndote en un entorno de **Simulación de Trabajo Remoto**. 
+
+Te damos un repositorio masivo, un equipo de bots que se comportan como humanos y un jefe que te va a exigir calidad de nivel mundial. Tú pones el código, nosotros ponemos el caos.
 
 ---
 
-## 📈 Dashboard de Seniority
-Mide tu progreso con métricas de nivel profesional:
-- **Technical Debt Score:** Calidad y limpieza del código.
-- **Estimation Accuracy:** ¿Qué tan bueno eres cumpliendo plazos?
-- **Security Grade:** ¿Introduces vulnerabilidades en el sistema?
-- **Resilience Score:** Cómo manejas los "Hotfixes" y la presión.
+## 🎭 Conoce a tu (insoportable) equipo
+
+| Personaje | Rol | Personalidad |
+| :--- | :--- | :--- |
+| **👔 The Picky Boss** | Tech Lead | Exigente, habla en Spanglish, rechaza PRs por un espacio de más. "Che, este fix no escala, refactorizalo ASAP". |
+| **🧪 The Ghost QA** | Tester | Silencioso pero letal. Encuentra ese caso borde que olvidaste y te rebota el ticket en Jira. |
+| **🤖 DevOps Bot** | CI/CD | Te avisa cuando el build explota. No tiene sentimientos, solo logs de error. |
+| **👦 The Mentee** | Dev Junior | Te hace preguntas difíciles a las 4 PM. Si no sabes explicarle, tu puntaje de Seniority baja. |
 
 ---
 
-## 🚀 Instalación (Próximamente)
+## 🏦 Industrias Disponibles
+*Elige tu vertical y domina el dominio de negocio:*
+
+- **Fintech & Core Banking:** Apache Fineract.
+- **ERP & Logística:** ERPNext / Frappe.
+- **E-commerce Pro:** Saleor (GraphQL/Python).
+- **Ciberseguridad:** Zitadel (Go).
+- **Super-Apps:** Delivery & Tracking (Flutter/Go).
+- *Y otras 8 industrias críticas...*
+
+---
+
+## 🛠️ Tecnología: "Bring Your Own AI" (BYO-AI)
+
+SENIORITY.AI es **LLM-Agnostic**. Creemos en la privacidad y en que tú controlas tus recursos:
+- **Conecta tu IA:** Usa tu propia API Key de **Gemini, Claude o GPT-4**.
+- **Sandbox Real:** Corremos contenedores **Docker** locales para validar tus soluciones.
+- **Workflow Profesional:** Git, Pull Requests, Code Reviews y Jira. Nada de simulaciones de juguete.
+
+---
+
+## 📊 Dashboard de Carrera (Métricas de Élite)
+
+No medimos "completitud", medimos **Seniority**:
+- **[A] Technical Debt:** ¿Tu código es mantenible o es un "hack"?
+- **[B] Estimation Accuracy:** ¿Cumples lo que prometes en el Sprint?
+- **[C] Security Grade:** ¿Dejaste una puerta abierta a un SQLi?
+- **[D] Resilience:** ¿Cómo reaccionas cuando el Jefe te pide un Hotfix un viernes a las 5 PM?
+
+---
+
+## ⚡ Quick Start (Próximamente)
+
 ```bash
-# Instala el CLI de Seniority.AI
+# 1. Instala el motor
 npm install -g seniority-ai
 
-# Inicia tu primer día de trabajo
-seniority-ai login
+# 2. Configura tu IA (Gemini/Claude/GPT)
+seniority-ai config --set-ai gemini
+
+# 3. Empieza tu primer día
 seniority-ai start --industry banking --role backend --seniority trainee
 ```
 
 ---
 
-## 🤝 Contribuir
-Este es un proyecto abierto para la comunidad de programadores de LATAM. Si quieres agregar una industria o mejorar el "Cerebro del Jefe", ¡eres bienvenido!
-
----
-
-*Desarrollado con ❤️ para los futuros Seniors de Latinoamérica.*
+<p align="center">
+  <b>¿Tienes lo necesario para sobrevivir a una semana en SENIORITY.AI?</b><br>
+  <sub>Desarrollado para la próxima generación de Tech Leads de Latinoamérica.</sub>
+</p>
