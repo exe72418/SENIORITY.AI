@@ -1,0 +1,25 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    git \
+    docker.io \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements and install
+COPY mcp-server/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the core and mcp logic
+COPY core/ ./core/
+COPY mcp-server/ ./mcp-server/
+COPY cli/ ./cli/
+COPY industries/ ./industries/
+
+# Expose MCP port
+EXPOSE 8000
+
+# Entry point starts the MCP server
+CMD ["python", "mcp-server/server_old.py"]

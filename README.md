@@ -54,7 +54,35 @@ Entrena en proyectos Open Source masivos (Banca, ERP, Ciberseguridad). Ideal par
 
 ---
 
-## 🛠️ Tecnología: "Bring Your Own AI" (BYO-AI)
+## 📋 Pre-requisitos
+Para ejecutar el simulador sin fricciones, asegúrate de tener:
+1.  **Git** instalado.
+2.  **Docker & Docker Compose** (Desktop o Engine).
+3.  Una **API Key** de tu IA favorita (Gemini es la recomendada por ser gratuita).
+
+---
+
+## ⚡ Quick Start (Modo Docker)
+
+**SENIORITY.AI** está completamente dockerizado. Olvídate de instalar dependencias locales:
+
+```bash
+# 1. Clona el repositorio
+git clone https://github.com/exe72418/SENIORITY.AI
+cd SENIORITY.AI
+
+# 2. Configura tu IA
+cp .env.example .env
+# Edita el .env con tu API Key de Gemini/OpenAI
+
+# 3. Levanta el simulador
+docker-compose up --build
+```
+Una vez que veas los logs listos, abre **[http://localhost:3000](http://localhost:3000)** en tu navegador y postúlate para tu primer puesto.
+
+---
+
+## ⚙️ Tecnología: "Bring Your Own AI" (BYO-AI)
 
 SENIORITY.AI es **LLM-Agnostic**. Creemos en la privacidad y en que tú controlas tus recursos:
 - **Conecta tu IA:** Usa tu propia API Key de **Gemini, Claude o GPT-4**.

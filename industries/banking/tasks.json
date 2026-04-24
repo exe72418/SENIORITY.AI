@@ -1,0 +1,31 @@
+{
+  "industry": "banking",
+  "name": "Global Bank Core",
+  "base_repo": "https://github.com/apache/fineract",
+  "tasks": [
+    {
+      "id": "BANK-101",
+      "level": "Trainee",
+      "title": "Bug: Validación de montos negativos en transferencias",
+      "functional_analysis": "El sistema permite procesar transferencias donde el monto es un número negativo. Esto provoca inconsistencias contables graves donde el saldo del emisor aumenta en lugar de disminuir.",
+      "technical_analysis": "Se debe interceptar el payload en el servicio de transferencias y validar que el campo 'amount' sea estrictamente mayor a 0 antes de cualquier operación de base de datos.",
+      "estimate": "2h",
+      "files_to_sabotage": [
+        {
+          "path": "fineract-provider/src/main/java/org/apache/fineract/portfolio/account/service/AccountTransferWritePlatformServiceJpaRepositoryImpl.java",
+          "action": "comment_out",
+          "search_pattern": "if (amount.isLessThanZero())",
+          "replacement": "// Bug inyectado por Seniority.AI: Validación de monto negativo deshabilitada para entrenamiento."
+        }
+      ]
+    },
+    {
+      "id": "BANK-201",
+      "level": "Junior",
+      "title": "Feature: Implementar Webhook para notificaciones de transacciones altas",
+      "functional_analysis": "Por regulaciones de lavado de dinero, cualquier transferencia mayor a $10,000 USD debe notificar a un sistema externo de auditoría en tiempo real.",
+      "technical_analysis": "Implementar un Observer pattern en el flujo de transacciones. Si el monto excede el umbral, disparar un POST request a la URL configurada en el secreto AML_AUDIT_URL.",
+      "estimate": "4h"
+    }
+  ]
+}

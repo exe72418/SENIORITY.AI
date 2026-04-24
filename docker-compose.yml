@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  # The Brain (AI Core & MCP Server)
+  mcp-core:
+    build:
+      context: .
+      dockerfile: Dockerfile.core
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - /var/run/docker.sock:/var/run/docker.sock # Crucial: Allows core to run docker tests
+    env_file:
+      - .env
+    networks:
+      - seniority-network
+
+  # The Face (Aesthetic Dashboard)
+  web-ui:
+    build:
+      context: ./web-ui
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    networks:
+      - seniority-network
+    depends_on:
+      - mcp-core
+
+networks:
+  seniority-network:
+    driver: bridge
