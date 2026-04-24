@@ -2,12 +2,12 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-# Copy package files
-COPY web-ui/package*.json ./
+# Al estar el contexto en ./web-ui, los archivos están en la raíz
+COPY package*.json ./
 RUN npm install
 
-# Copy source
-COPY web-ui/ .
+# Copiamos el resto del código fuente
+COPY . .
 
 # Build for production
 RUN npm run build

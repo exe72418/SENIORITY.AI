@@ -2,11 +2,11 @@
 
 import React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { SeniorityProvider, useSeniority } from '../context/SeniorityContext';
-import OnboardingView from '../components/views/OnboardingView';
-import InterviewView from '../components/views/InterviewView';
-import HiredView from '../components/views/HiredView';
-import WorkspaceView from '../components/views/WorkspaceView';
+import { SeniorityProvider, useSeniority } from '../core/context/SeniorityContext';
+import OnboardingView from '../features/onboarding/OnboardingView';
+import InterviewView from '../features/interview/InterviewView';
+import HiredView from '../features/interview/HiredView';
+import WorkspaceView from '../features/workspace/WorkspaceView';
 
 function AppOrchestrator() {
   const { state } = useSeniority();

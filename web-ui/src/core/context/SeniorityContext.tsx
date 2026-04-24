@@ -1,10 +1,16 @@
 'use client';
 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 
-// Tipos rigurosos para escalabilidad
-export type Industry = 'banking' | 'erp' | 'ecommerce' | 'cyber' | 'agrotech' | '';
-export type Role = 'Backend Developer' | 'Frontend Developer' | 'Fullstack Developer' | 'Mobile Developer' | 'QA Automation' | '';
+export type Industry = 
+  | 'banking' | 'erp' | 'ecommerce' | 'cyber' | 'delivery' 
+  | 'agrotech' | 'cctv' | 'healthtech' | 'edtech' | 'govtech' 
+  | 'logistics' | 'factory' | 'geotracking' | '';
+
+export type Role = 
+  | 'Backend Developer' | 'Frontend Developer' | 'Fullstack Developer' 
+  | 'Mobile Developer' | 'QA Automation' | 'Business Analyst' | '';
+
 export type Seniority = 'Trainee' | 'Junior' | 'Semi-Senior' | 'Senior' | '';
 export type AppState = 'onboarding' | 'interview' | 'hired' | 'workspace';
 
@@ -13,6 +19,8 @@ interface UserCareer {
   role: Role;
   seniority: Seniority;
   hired: boolean;
+  cvName: string;
+  selectedRepo?: string;
 }
 
 interface SeniorityContextType {
@@ -32,17 +40,32 @@ export function SeniorityProvider({ children }: { children: ReactNode }) {
     role: '',
     seniority: '',
     hired: false,
+    cvName: '',
   });
 
-  const setAppState = (newState: AppState) => setState(newState);
-  
-  const updateCareer = (updates: Partial<UserCareer>) => {
-    setCareer(prev => ({ ...prev, ...updates }));
-  };
+  // CARGAR SESIÓN AL INICIAR
+  useEffect(() => {
+    const savedState = localStorage.getItem('seniority_app_state') as AppState;
+    const savedCareer = localStorage.getItem('seniority_career');
+    
+    if (savedState) setState(savedState);
+    if (savedCareer) setCareer(JSON.parse(savedCareer));
+  }, []);
 
+  // GUARDAR CADA VEZ QUE CAMBIA EL ESTADO
+  useEffect(() => {
+    localStorage.setItem('seniority_app_state', state);
+    localStorage.setItem('seniority_career', JSON.stringify(career));
+  }, [state, career]);
+
+  const setAppState = (newState: AppState) => setState(newState);
+  const updateCareer = (updates: Partial<UserCareer>) => setCareer(prev => ({ ...prev, ...updates }));
+  
   const resetSession = () => {
+    localStorage.removeItem('seniority_app_state');
+    localStorage.removeItem('seniority_career');
     setState('onboarding');
-    setCareer({ industry: '', role: '', seniority: '', hired: false });
+    setCareer({ industry: '', role: '', seniority: '', hired: false, cvName: '' });
   };
 
   return (
@@ -54,8 +77,6 @@ export function SeniorityProvider({ children }: { children: ReactNode }) {
 
 export function useSeniority() {
   const context = useContext(SeniorityContext);
-  if (context === undefined) {
-    throw new Error('useSeniority must be used within a SeniorityProvider');
-  }
+  if (context === undefined) throw new Error('useSeniority must be used within a SeniorityProvider');
   return context;
 }

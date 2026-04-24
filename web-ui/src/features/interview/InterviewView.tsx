@@ -39,13 +39,6 @@ export default function InterviewView() {
               <li>• Si pasás la técnica, se desbloqueará el entorno de trabajo.</li>
             </ul>
           </div>
-
-          <div className="p-6 bg-primary/5 border border-primary/10 rounded-2xl">
-            <h4 className="text-[10px] font-black text-primary uppercase tracking-[0.2em] mb-2">Tip del Reclutador</h4>
-            <p className="text-xs text-white/60 italic">
-              "No intentes guitarrear. Si no sabés algo, explicá cómo lo investigarías."
-            </p>
-          </div>
         </div>
       </div>
     </div>

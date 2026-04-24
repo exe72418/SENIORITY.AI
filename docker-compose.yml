@@ -1,30 +1,36 @@
 version: '3.8'
 
 services:
-  # The Brain (AI Core & MCP Server)
   mcp-core:
     build:
       context: .
       dockerfile: Dockerfile.core
+    command: uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
     ports:
-      - "8000:8000"
+      - "8001:8000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway" # PERMITE HABLAR CON TU PC REAL
     volumes:
       - .:/app
-      - /var/run/docker.sock:/var/run/docker.sock # Crucial: Allows core to run docker tests
+      - /var/run/docker.sock:/var/run/docker.sock
     env_file:
       - .env
     networks:
       - seniority-network
 
-  # The Face (Aesthetic Dashboard)
   web-ui:
     build:
       context: ./web-ui
       dockerfile: Dockerfile
+    command: npm run dev
     ports:
-      - "3000:3000"
+      - "3001:3000"
+    volumes:
+      - ./web-ui:/app
+      - /app/node_modules
     environment:
-      - NEXT_PUBLIC_API_URL=http://localhost:8000
+      - NEXT_PUBLIC_API_URL=http://localhost:8001
+      - WATCHPACK_POLLING=true
     networks:
       - seniority-network
     depends_on:

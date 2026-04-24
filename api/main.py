@@ -66,16 +66,33 @@ def get_workspace_status():
         ]
     }
 
-@app.post("/pull-request/evaluate")
-def evaluate_pr(ticket_id: str):
-    """Dispara la evaluación de la IA sobre el código actual."""
-    # 1. Llamar al MCP para obtener el git diff
-    # 2. Llamar al MCP para correr los tests de Docker
-    # 3. Pasar todo al PREvaluator
-    return {
-        "status": "PROCESSING",
-        "message": "The Boss is reviewing your code... Check Slack for feedback."
-    }
+from core.cli_ai_adapter import LocalCLIAI
+
+# ... (código existente) ...
+
+class ChatRequest(BaseModel):
+    personality_file: str
+    user_message: str
+    command_template: str = 'gemini prompt "{prompt}"'
+
+@app.post("/chat/local-cli")
+def chat_with_local_ai(req: ChatRequest):
+    """Llama a la IA de la terminal del usuario."""
+    try:
+        # 1. Leer el system prompt
+        base_path = os.path.dirname(os.path.dirname(__file__))
+        prompt_path = os.path.join(base_path, "core", "prompts", req.personality_file)
+        
+        with open(prompt_path, "r") as f:
+            system_prompt = f.read()
+
+        # 2. Ejecutar comando de terminal
+        cli_ai = LocalCLIAI(command_template=req.command_template)
+        response = cli_ai.ask(system_prompt, req.user_message)
+        
+        return {"response": response}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
     import uvicorn
