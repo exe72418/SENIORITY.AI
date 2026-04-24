@@ -18,11 +18,16 @@
 
 ---
 
-## 🚀 ¿Qué es SENIORITY.AI?
+## 🚀 Dos Caminos, Un Solo Objetivo
 
-En Latinoamérica, el salto de Junior a Senior es un abismo. **SENIORITY.AI** cierra esa brecha sumergiéndote en un entorno de **Simulación de Trabajo Remoto**. 
+### 👔 Career Mode (El Empleado)
+Entrena en proyectos Open Source masivos (Banca, ERP, Ciberseguridad). Ideal para quienes buscan ser contratados por empresas de primer nivel.
 
-Te damos un repositorio masivo, un equipo de bots que se comportan como humanos y un jefe que te va a exigir calidad de nivel mundial. Tú pones el código, nosotros ponemos el caos.
+### 💡 Entrepreneur Mode (El Fundador que Aprende)
+**Trae tu propia idea y apréndelo todo construyéndola.** Dinos a qué quieres llegar (ej: "Un clon de Mercado Libre") y nuestra IA actuará como tu **CTO Mentor**. 
+- **Aprende haciendo:** La IA te guía paso a paso, desde la arquitectura hasta el despliegue.
+- **Calidad Real:** No es un prototipo sucio. La IA te exige estándares de Senior para que tu código sea escalable y profesional.
+- **Tu propio MVP:** Al terminar, no solo habrás aprendido, sino que tendrás un producto real listo para el mercado.
 
 ---
 
