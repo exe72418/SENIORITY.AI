@@ -27,7 +27,15 @@ We implement an **MCP Server** that runs locally on the user's machine, granting
 4. **Validation:** On `git push`, the AI receives a webhook, triggers `docker_runner` via MCP, and analyzes the test results.
 5. **Feedback:** The AI performs a Code Review on the PR and either merges the code or rejects the ticket via Jira/Slack.
 
-## 3. Data Privacy & Security
-- **Local First:** All source code stays on the user's machine.
-- **Sandboxed Execution:** All tests run inside Docker to prevent local system damage.
-- **Key Management:** API Keys for the user's AI (Gemini/Claude/GPT) are stored only in the user's local environment.
+## 3. Multiplayer & Squad Mode (Free Team Sync)
+To support teams of 2-3 developers at zero infrastructure cost, we use **GitHub as the Shared State**:
+- **GitHub Issues:** Acts as the shared Jira board. The AI Orchestrator posts tasks here, and team members can assign them to each other.
+- **Pull Request Reviews:** Team members must perform peer-reviews. The **AI Boss** will only step in after at least one human "Approval" or if the team is stuck.
+- **Shared Repository:** The industry project is forked into a shared org or user account, allowing all members to see the same codebase and history.
+
+## 4. Requirement Discovery (The Client AI)
+Before a task is officially moved to "In Progress," the team (or the Analyst) must interact with the **Client AI** via the Slack-Simulator.
+- **Analyst Role:** Extracts requirements and documents them in the GitHub Issue.
+- **Developer Role:** Translates the Analyst's findings into code.
+- **Validation:** The AI Boss compares the final PR against the Client's initial vague request and the Analyst's documented plan.
+
